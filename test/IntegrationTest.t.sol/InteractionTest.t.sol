@@ -19,14 +19,14 @@ contract InteractionsTest is Test {
         fundMe = deploy.run();
         vm.deal(USER, STARTING_BALANCE);
     }
+
     function testUserCanFundInteractions() public {
         FundFundMe fundFundMe = new FundFundMe();
         fundFundMe.fundFundMe(address(fundMe));
 
         WithdrawFundMe withdrawFundMe = new WithdrawFundMe();
-        withdrawFundMe.withdrawFundMe(address(fundMe));  
+        withdrawFundMe.withdrawFundMe(address(fundMe));
 
         assert(address(fundMe).balance == 0);
     }
-
 }

@@ -18,7 +18,7 @@ contract FundMe {
     uint256 public constant MINIMUM_USD = 5e18;
     AggregatorV3Interface public s_priceFeed;
 
-    constructor(address priceFeed) {          
+    constructor(address priceFeed) {
         // Pass an address for the price feed contract when we deploy our FundMe contract!
         // What is the purpose of the constructor? - To set the owner of the contract
         i_owner = msg.sender;
@@ -44,9 +44,7 @@ contract FundMe {
 
     function withdraw() public onlyOwner {
         uint256 fundersLength = s_funders.length;
-        for (uint256 funderIndex = 0; 
-            funderIndex < fundersLength; 
-            funderIndex++) {
+        for (uint256 funderIndex = 0; funderIndex < fundersLength; funderIndex++) {
             address funder = s_funders[funderIndex];
             s_addressToAmountFunded[funder] = 0;
         }
@@ -81,6 +79,7 @@ contract FundMe {
     receive() external payable {
         fund();
     }
+
     /**
      * view / pure functions:
      * they don't cost gas when called externally (i.e. not from a contract)
@@ -91,9 +90,11 @@ contract FundMe {
     function getAddressToAmountFunded(address fundingAddress) external view returns (uint256) {
         return s_addressToAmountFunded[fundingAddress];
     }
+
     function getFunder(uint256 index) external view returns (address) {
         return s_funders[index];
     }
+
     function getOwner() public view returns (address) {
         return i_owner;
     }

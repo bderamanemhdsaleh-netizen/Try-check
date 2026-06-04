@@ -19,6 +19,7 @@ docs/
 .env.*
 !.env.example
 zkout/
+foundry.lock/
 broadcast/
 lib/
 venv/
