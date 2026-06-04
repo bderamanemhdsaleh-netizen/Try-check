@@ -1,0 +1,2 @@
+[console_scripts]
+mbake = mbake.cli:main
