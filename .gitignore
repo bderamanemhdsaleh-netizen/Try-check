@@ -18,3 +18,7 @@ docs/
 .env
 .env.*
 !.env.example
+zkout/
+broadcast/
+lib/
+venv/
